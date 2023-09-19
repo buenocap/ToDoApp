@@ -1,0 +1,35 @@
+body{
+    background-color: blanchedalmond;
+}
+
+:checked + label{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.flex-container{
+    display: flex;
+    margin: 10px;
+}
+
+.flex-item{
+    margin-right: 25px;
+}
+
+.flex-container-inner{
+    display: flex;
+}
+
+span{
+    font-weight: bold;
+}
+
+.flex-item-inner{
+    margin-right: 25px;
+}
+
+.container{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
