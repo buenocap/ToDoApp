@@ -5,6 +5,7 @@ const app = express();
 const PORT = 3000;
 
 let tList = [];
+let wList= [];
 
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -18,18 +19,30 @@ app.get("/",(req,res)=>{
 
 app.post("/",(req,res)=>{
     tList.push(req.body);
-    console.log(tList);
     res.render("index.ejs",{
         todayList: tList
     });
 })
 
 app.get("/week",(req,res)=>{
-    res.render("week.ejs");
+    res.render("week.ejs",{
+        weekList: wList
+    });
+})
+
+app.post("/week",(req,res)=>{
+    let data = {tInput:req.body.tInput,dueInput:req.body.dueInput,dueDayWeek:parseInt(req.body.dueDayWeek)};
+    wList.push(data);
+    console.log(wList);
+    res.render("week.ejs",{
+        weekList: wList
+    });
 })
 
 app.get("/month",(req,res)=>{
-    res.render("month.ejs");
+    res.render("month.ejs",{
+        page_name:'month'
+    });
 })
 
 app.listen(PORT,()=>{

@@ -1,1 +1,161 @@
 <%- include("partials/header.ejs") %>
+<div class="container mt-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-9 col-4">
+            <form action="/week" method="post">
+                <label for="tInput"><span>Enter Task:</span></label>
+                <input type="text" id="tInput" name="tInput" required>
+                <label class="ms-3" for="dueInput"><span>Enter Time Due:</span></label>
+                <input type="time" id="dueInput" name="dueInput">
+                <label class="ms-3" for="dueDayWeek"><span>Enter Day:</span></label>
+                <input type="number" id="dueDayWeek" name="dueDayWeek">
+                <button type="submit" class="btn btn-primary ms-3">Submit</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <% 
+        let curr = new Date 
+        let week = []
+        
+        for (let i = 1; i <= 7; i++) {
+        let first = (curr.getDate() - curr.getDay() + i)-1
+        let day = new Date(curr.setDate(first)).toISOString().slice(8, 10)
+        week.push(parseInt(day))
+        }
+    %>
+
+    <div class="container">
+        <div class="row weekFlex-container">
+            <!--Monday-->
+            <div class="card col-lg-3">
+                <h2 class="border-bottom">Monday <%= week[0] %></h2>
+                <% if (locals.weekList) { %>
+                    <% for( let index = 0; index < weekList.length; index++ ) { %>
+                        <% if (weekList[index].dueDayWeek === week[0]) { %>
+                            <div class="flex-container ms-0 box">
+                                <input class="flex-item checkbox-item" type="checkbox" name="<%= weekList[index].tInput+index %>" id="<%= weekList[index].tInput+index %>">
+                                <label class="flex-item flex-container-inner" for="<%= weekList[index].tInput+index %>">
+                                    <div class="flex-item-inner"><span>Task:</span> <%= weekList[index].tInput%></div>
+                                    <div class="flex-item-inner"><span>Time Due:</span> <%= weekList[index].dueInput %></div>
+                                </label>
+                            </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </div>
+
+            <!--Tuesday-->
+            <div class="card col-lg-3">
+                <h2 class="border-bottom">Tuesday <%= week[1] %></h2>
+                <% if (locals.weekList) { %>
+                    <% for( let index = 0; index < weekList.length; index++ ) { %>
+                        <% if (weekList[index].dueDayWeek === week[1]) { %>
+                            <div class="flex-container ms-0 box">
+                                <input class="flex-item checkbox-item" type="checkbox" name="<%= weekList[index].tInput+index %>" id="<%= weekList[index].tInput+index %>">
+                                <label class="flex-item flex-container-inner" for="<%= weekList[index].tInput+index %>">
+                                    <div class="flex-item-inner"><span>Task:</span> <%= weekList[index].tInput%></div>
+                                    <div class="flex-item-inner"><span>Time Due:</span> <%= weekList[index].dueInput %></div>
+                                </label>
+                            </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </div>
+
+            <!--Wednesday-->
+            <div class="card col-lg-3">
+                <h2 class="border-bottom">Wednesday <%= week[2] %></h2>
+                <% if (locals.weekList) { %>
+                    <% for( let index = 0; index < weekList.length; index++ ) { %>
+                        <% if (weekList[index].dueDayWeek === week[2]) { %>
+                            <div class="flex-container ms-0 box">
+                                <input class="flex-item checkbox-item" type="checkbox" name="<%= weekList[index].tInput+index %>" id="<%= weekList[index].tInput+index %>">
+                                <label class="flex-item flex-container-inner" for="<%= weekList[index].tInput+index %>">
+                                    <div class="flex-item-inner"><span>Task:</span> <%= weekList[index].tInput%></div>
+                                    <div class="flex-item-inner"><span>Time Due:</span> <%= weekList[index].dueInput %></div>
+                                </label>
+                            </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </div>
+
+            <!--Thursday-->
+            <div class="card col-lg-3">
+                <h2 class="border-bottom">Thursday <%= week[3] %></h2>
+                <% if (locals.weekList) { %>
+                    <% for( let index = 0; index < weekList.length; index++ ) { %>
+                        <% if (weekList[index].dueDayWeek === week[3]) { %>
+                            <div class="flex-container ms-0 box">
+                                <input class="flex-item checkbox-item" type="checkbox" name="<%= weekList[index].tInput+index %>" id="<%= weekList[index].tInput+index %>">
+                                <label class="flex-item flex-container-inner" for="<%= weekList[index].tInput+index %>">
+                                    <div class="flex-item-inner"><span>Task:</span> <%= weekList[index].tInput%></div>
+                                    <div class="flex-item-inner"><span>Time Due:</span> <%= weekList[index].dueInput %></div>
+                                </label>
+                            </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <!--Friday-->
+            <div class="card col-lg-4">
+                <h2 class="border-bottom">Friday <%= week[4] %></h2>
+                <% if (locals.weekList) { %>
+                    <% for( let index = 0; index < weekList.length; index++ ) { %>
+                        <% if (weekList[index].dueDayWeek === week[4]) { %>
+                            <div class="flex-container ms-0 box">
+                                <input class="flex-item checkbox-item" type="checkbox" name="<%= weekList[index].tInput+index %>" id="<%= weekList[index].tInput+index %>">
+                                <label class="flex-item flex-container-inner" for="<%= weekList[index].tInput+index %>">
+                                    <div class="flex-item-inner"><span>Task:</span> <%= weekList[index].tInput%></div>
+                                    <div class="flex-item-inner"><span>Time Due:</span> <%= weekList[index].dueInput %></div>
+                                </label>
+                            </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </div>
+
+            <!--Saturday-->
+            <div class="card col-lg-4">
+                <h2 class="border-bottom">Saturday <%= week[5] %></h2>
+                <% if (locals.weekList) { %>
+                    <% for( let index = 0; index < weekList.length; index++ ) { %>
+                        <% if (weekList[index].dueDayWeek === week[5]) { %>
+                            <div class="flex-container ms-0 box">
+                                <input class="flex-item checkbox-item" type="checkbox" name="<%= weekList[index].tInput+index %>" id="<%= weekList[index].tInput+index %>">
+                                <label class="flex-item flex-container-inner" for="<%= weekList[index].tInput+index %>">
+                                    <div class="flex-item-inner"><span>Task:</span> <%= weekList[index].tInput%></div>
+                                    <div class="flex-item-inner"><span>Time Due:</span> <%= weekList[index].dueInput %></div>
+                                </label>
+                            </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </div>
+
+            <!--Sunday-->
+            <div class="card col-lg-4">
+                <h2 class="border-bottom">Sunday <%= week[6] %></h2>
+                <% if (locals.weekList) { %>
+                    <% for( let index = 0; index < weekList.length; index++ ) { %>
+                        <% if (weekList[index].dueDayWeek === week[6]) { %>
+                            <div class="flex-container ms-0 box">
+                                <input class="flex-item checkbox-item" type="checkbox" name="<%= weekList[index].tInput+index %>" id="<%= weekList[index].tInput+index %>">
+                                <label class="flex-item flex-container-inner" for="<%= weekList[index].tInput+index %>">
+                                    <div class="flex-item-inner"><span>Task:</span> <%= weekList[index].tInput%></div>
+                                    <div class="flex-item-inner"><span>Time Due:</span> <%= weekList[index].dueInput %></div>
+                                </label>
+                            </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+
+    </div>
+</div>
