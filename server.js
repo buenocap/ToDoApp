@@ -39,12 +39,6 @@ app.post("/week",(req,res)=>{
     });
 })
 
-app.get("/month",(req,res)=>{
-    res.render("month.ejs",{
-        page_name:'month'
-    });
-})
-
 app.listen(PORT,()=>{
     console.log(`Listening on port: ${PORT}`);
 });
