@@ -30,6 +30,20 @@ span{
 
 .container{
     background-color: white;
-    padding: 10px;
+    padding: 30px;
     border-radius: 10px;
+}
+
+.box{
+    background-color: rgb(206, 205, 205);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.active{
+    font-weight: bolder;
+}
+
+.card{
+    background-color: rgb(241, 241, 241);
 }

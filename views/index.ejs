@@ -1,5 +1,6 @@
 <%- include("partials/header.ejs") %>
 <div class="container mt-3">
+    <div><h2>Today's Tasks</h2></div>
     <div>
         <form action="/" method="post">
             <label for="tInput"><span>Enter Task:</span></label>
@@ -13,7 +14,7 @@
     <div>
         <% if (locals.todayList) { %>
             <% for( let index = 0; index < todayList.length; index++ ) { %>
-                <div class="flex-container ms-0">
+                <div class="flex-container ms-0 box">
                     <input class="flex-item checkbox-item" type="checkbox" name="<%= todayList[index].tInput+index %>" id="<%= todayList[index].tInput+index %>">
                     <label class="flex-item flex-container-inner" for="<%= todayList[index].tInput+index %>">
                         <div class="flex-item-inner"><span>Task:</span> <%= todayList[index].tInput%></div>
