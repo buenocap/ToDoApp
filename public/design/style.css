@@ -13,7 +13,7 @@ body{
 }
 
 .flex-item{
-    margin-right: 25px;
+    margin-right: 15px;
 }
 
 .flex-container-inner{
@@ -24,6 +24,9 @@ span{
     font-weight: bold;
 }
 
+.flex-item-inner{
+    margin-right: 25px;
+}
 
 .container{
     background-color: white;
